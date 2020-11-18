@@ -9,8 +9,6 @@ create table association_value_entry
 	saga_type varchar(255)
 );
 
-alter table association_value_entry owner to postgres;
-
 create index idxk45eqnxkgd8hpdn6xixn8sgft
 	on association_value_entry (saga_type, association_key, association_value);
 
@@ -37,8 +35,6 @@ create table domain_event_entry
 		unique (aggregate_identifier, sequence_number)
 );
 
-alter table domain_event_entry owner to postgres;
-
 create table saga_entry
 (
 	saga_id varchar(255) not null
@@ -48,8 +44,6 @@ create table saga_entry
 	saga_type varchar(255),
 	serialized_saga oid
 );
-
-alter table saga_entry owner to postgres;
 
 create table snapshot_event_entry
 (
@@ -68,8 +62,6 @@ create table snapshot_event_entry
 		primary key (aggregate_identifier, sequence_number, type)
 );
 
-alter table snapshot_event_entry owner to postgres;
-
 create table token_entry
 (
 	processor_name varchar(255) not null,
@@ -82,5 +74,6 @@ create table token_entry
 		primary key (processor_name, segment)
 );
 
-alter table token_entry owner to postgres;
+create sequence hibernate_sequence;
+
 

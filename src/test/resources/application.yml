@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    username: postgres
+    password: example
+    url: jdbc:h2:mem:testdb
+
+axon:
+  axonserver:
+    enabled: false
